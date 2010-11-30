@@ -607,7 +607,6 @@
 				0065979111BEEF4800E89ABD /* Sources */,
 				0065979E11BEEF4800E89ABD /* Frameworks */,
 				006597A011BEEF4800E89ABD /* CopyFiles */,
-				0097077F125E6435002B2065 /* Generate docset */,
 			);
 			buildRules = (
 			);
@@ -723,21 +722,6 @@
 			shellPath = /bin/sh;
 			shellScript = ../Tests/RunTests.sh;
 		};
-		0097077F125E6435002B2065 /* Generate docset */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate docset";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd .. && make docs";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -844,6 +828,7 @@
 			baseConfigurationReference = 00C4052E0FE77688003CE908 /* Shared-IPhone.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = YAJLIOSDevice;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -861,7 +846,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = "Info copy.plist";
 				PRODUCT_NAME = YAJLIOSSimulator;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -945,7 +930,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
