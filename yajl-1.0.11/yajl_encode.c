@@ -131,7 +131,7 @@ static void Utf32toUtf8(unsigned int codepoint, char * utf8Buf)
 }
 
 void yajl_string_decode(yajl_buf buf, const unsigned char * str,
-                        unsigned int len)
+                        unsigned int len, unsigned int psp)
 {
     unsigned int beg = 0;
     unsigned int end = 0;    
@@ -176,7 +176,7 @@ void yajl_string_decode(yajl_buf buf, const unsigned char * str,
                     break;
                 }
                 default:
-                    assert("this should never happen" == NULL);
+                  assert("this should never happen" == NULL || psp);
             }
             yajl_buf_append(buf, unescaped, strlen(unescaped));
             beg = ++end;

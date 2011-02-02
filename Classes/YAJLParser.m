@@ -249,7 +249,8 @@ yajl_end_array
   if (!handle_) {
     yajl_parser_config cfg = {
       ((parserOptions_ & YAJLParserOptionsAllowComments) ? 1 : 0), // allowComments: if nonzero, javascript style comments will be allowed in the input (both /* */ and //)
-      ((parserOptions_ & YAJLParserOptionsCheckUTF8) ? 1 : 0)  // checkUTF8: if nonzero, invalid UTF8 strings will cause a parse error
+      ((parserOptions_ & YAJLParserOptionsCheckUTF8) ? 1 : 0),  // checkUTF8: if nonzero, invalid UTF8 strings will cause a parse error
+      ((parserOptions_ & YAJLParserOptionsPermissiveStringParsing) ? 1 : 0)
     };
     
     handle_ = yajl_alloc(&callbacks, &cfg, NULL, self);

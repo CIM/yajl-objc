@@ -105,7 +105,7 @@ struct yajl_lexer_t {
 
     /* shall we validate utf8 inside strings? */
     unsigned int validateUTF8;
-
+    unsigned int permissiveStringParsing;
     yajl_alloc_funcs * alloc;
 };
 
@@ -118,13 +118,14 @@ struct yajl_lexer_t {
 
 yajl_lexer
 yajl_lex_alloc(yajl_alloc_funcs * alloc,
-               unsigned int allowComments, unsigned int validateUTF8)
+               unsigned int allowComments, unsigned int validateUTF8, unsigned int permissiveStringParsing)
 {
     yajl_lexer lxr = (yajl_lexer) YA_MALLOC(alloc, sizeof(struct yajl_lexer_t));
     memset((void *) lxr, 0, sizeof(struct yajl_lexer_t));
     lxr->buf = yajl_buf_alloc(alloc);
     lxr->allowComments = allowComments;
     lxr->validateUTF8 = validateUTF8;
+    lxr->permissiveStringParsing = permissiveStringParsing;
     lxr->alloc = alloc;
     return lxr;
 }
@@ -299,7 +300,7 @@ yajl_lex_string(yajl_lexer lexer, const unsigned char * jsonText,
                         goto finish_string_lex;
                     }
                 }
-            } else if (!(charLookupTable[curChar] & VEC)) {
+            } else if (!(charLookupTable[curChar] & VEC) && !lexer->permissiveStringParsing) {
                 /* back up to offending char */
                 unreadChar(lexer, offset);
                 lexer->error = yajl_lex_string_invalid_escaped_char;

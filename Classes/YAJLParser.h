@@ -51,6 +51,7 @@ enum YAJLParserOptions {
   YAJLParserOptionsAllowComments = 1 << 0, //!< Javascript style comments will be allowed in the input (both /&asterisk; &asterisk;/ and //)
   YAJLParserOptionsCheckUTF8 = 1 << 1, //!< Invalid UTF8 strings will cause a parse error
   YAJLParserOptionsStrictPrecision = 1 << 2, //!< If YES will force strict precision and return integer overflow error
+  YAJLParserOptionsPermissiveStringParsing = 1 << 3,
 };
 typedef NSUInteger YAJLParserOptions; //! Parser options
 

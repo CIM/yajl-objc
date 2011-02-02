@@ -117,6 +117,7 @@ extern "C" {
         /** if nonzero, invalid UTF8 strings will cause a parse
          *  error */
         unsigned int checkUTF8;
+        unsigned int permissiveStringParsing;
     } yajl_parser_config;
 
     /** allocate a parser handle

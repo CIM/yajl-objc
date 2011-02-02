@@ -156,4 +156,20 @@
   GHAssertTrue(status == YAJLParserStatusError, @"Should error");
 }
 
+- (void)testPermissiveStringParsing {
+  YAJLParser *parser = [[YAJLParser alloc] initWithParserOptions:YAJLParserOptionsPermissiveStringParsing];
+  YAJLParserStatus status; 
+  status = [parser parse:[self loadData:@"badstrings"]];
+  GHAssertTrue(status == YAJLParserStatusOK, @"Should be OK");
+  [parser release];
+}
+
+- (void)testNonPermissiveStringParsing {
+  YAJLParser *parser = [[YAJLParser alloc] initWithParserOptions:0];
+  YAJLParserStatus status; 
+  status = [parser parse:[self loadData:@"badstrings"]];
+  GHAssertTrue(status == YAJLParserStatusError, @"Should error");
+  [parser release];
+}
+
 @end
