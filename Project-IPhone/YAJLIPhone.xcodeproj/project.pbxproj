@@ -837,6 +837,7 @@
 			baseConfigurationReference = 00C4052E0FE77688003CE908 /* Shared-IPhone.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = YAJLIOSDevice;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -855,7 +856,7 @@
 			baseConfigurationReference = 00C4052E0FE77688003CE908 /* Shared-IPhone.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = YAJLIOSSimulator;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -886,6 +887,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Tests;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -916,6 +918,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Tests;
+				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
 			};
 			name = Release;
