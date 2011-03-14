@@ -9,4 +9,5 @@ Documentation
 *.tm_build_errors
 *.swp
 *~.nib
+*.xcuserdatad
 .gitattributes
